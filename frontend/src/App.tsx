@@ -1,3 +1,11 @@
+import Navbar from './components/Navbar'
+import Dashboard from './pages/Dashboard'
+
 export default function App() {
-  return <div className="bg-red-500 p-8 text-2xl text-white">Tailwind works</div>
+  return (
+    <div className="min-h-screen bg-gray-950 text-white">
+      <Navbar />
+      <Dashboard />
+    </div>
+  )
 }
