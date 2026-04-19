@@ -7,7 +7,7 @@ class LineItem(SQLModel, table=True):
 
     id: Optional[int] = Field(default=None, primary_key=True)
     payslip_id: str = Field(foreign_key="payslip.uuid_timbre")
-    type: str
+    item_type: str
     code: str
     description: str
     amount: float

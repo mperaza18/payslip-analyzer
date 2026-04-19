@@ -1,4 +1,4 @@
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from sqlmodel import Field, SQLModel
 
 
@@ -10,4 +10,4 @@ class Payslip(SQLModel, table=True):
     total_perceptions: float
     total_deductions: float
     net_pay: float
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
