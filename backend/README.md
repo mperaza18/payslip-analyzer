@@ -17,7 +17,10 @@ FastAPI · SQLModel · SQLite · LLM client (Ollama / Azure OpenAI)
 
 ```bash
 # 1. Crear entorno virtual
-python -m venv .venv
+# macOS / Linux: usa python3 explícitamente (el comando "python" puede no existir)
+python3 -m venv .venv
+# Windows: python -m venv .venv
+
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 
 # 2. Instalar dependencias
@@ -28,6 +31,20 @@ pip freeze > requirements.txt    # solo la primera vez
 cp .env.example .env
 # Edita .env con tu proveedor LLM (ollama | azure)
 ```
+
+---
+
+## Dependencias
+
+| Paquete              | Propósito                                                                 |
+|----------------------|---------------------------------------------------------------------------|
+| `fastapi`            | Framework web asíncrono para construir la API REST                        |
+| `uvicorn[standard]`  | Servidor ASGI que corre la app FastAPI; `[standard]` incluye hot reload   |
+| `sqlmodel`           | ORM que combina SQLAlchemy + Pydantic; define tablas y valida datos       |
+| `lxml`               | Parser XML de alto rendimiento para leer los archivos CFDI                |
+| `pydantic-settings`  | Carga y valida variables de entorno desde `.env` en `config.py`           |
+| `python-multipart`   | Habilita recepción de archivos (`multipart/form-data`) en FastAPI         |
+| `httpx`              | Cliente HTTP asíncrono para llamar a la API de Ollama o Azure OpenAI      |
 
 ---
 

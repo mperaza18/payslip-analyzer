@@ -1,0 +1,8 @@
+fastapi==0.136.0
+httpx==0.28.1
+pydantic-settings==2.13.1
+python-multipart==0.0.26
+sqlmodel==0.0.38
+uvicorn==0.44.0
+uvloop==0.22.1
+watchfiles==1.1.1
