@@ -5,8 +5,10 @@ export interface HealthResponse {
   llm_provider: string
 }
 
-export const fetchHealth = (): Promise<HealthResponse> =>
-  fetch(`${BASE_URL}/health`).then((r) => {
+export const fetchHealth = (signal?: AbortSignal): Promise<HealthResponse> =>
+  fetch(`${BASE_URL}/health`, { signal }).then((r) => {
     if (!r.ok) throw new Error(`HTTP ${r.status}`)
     return r.json()
   })
+
+// TODO: add runtime shape validation (zod) before Phase 3 response handling

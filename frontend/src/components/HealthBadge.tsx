@@ -6,9 +6,13 @@ export default function HealthBadge() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetchHealth()
+    const controller = new AbortController()
+    fetchHealth(controller.signal)
       .then(setData)
-      .catch((e: Error) => setError(e.message))
+      .catch((e: Error) => {
+        if (e.name !== 'AbortError') setError(e.message)
+      })
+    return () => controller.abort()
   }, [])
 
   if (error) {
