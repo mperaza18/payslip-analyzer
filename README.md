@@ -43,6 +43,7 @@ uvicorn app.main:app --reload --port 8000
 cd frontend
 npm install
 npm run dev
+
 ```
 
 Abre **`http://localhost:5173`** — debe mostrar el JSON del `/health` del backend.
@@ -63,6 +64,35 @@ curl http://localhost:8000/llm/ping
 # Swagger UI
 open http://localhost:8000/docs
 ```
+
+### Todos los comandos:
+```bash
+Terminal 1 — Backend:
+cd backend
+source .venv/bin/activate
+uvicorn app.main:app --reload --port 8000
+
+Terminal 2 — Frontend:
+cd frontend
+npm run dev
+
+Verificar:
+# API
+curl http://localhost:8000/health
+# → {"status":"ok","llm_provider":"ollama"}
+
+# Tablas SQLite (se crean en el primer arranque)
+sqlite3 data/payslips.db ".tables"
+# → line_item  payslip  periods
+
+# UI
+open http://localhost:5173
+# → Navbar con punto verde + JSON del /health
+
+Tests:
+cd backend && source .venv/bin/activate && pytest tests/ -v
+# → 3 passed
+  ```
 
 ---
 
@@ -101,7 +131,7 @@ payslip-analyzer/
 
 | Fase | Descripción                        | Estado      |
 |------|------------------------------------|-------------|
-| 1    | Foundation setup (monorepo + stack)| En progreso |
+| 1    | Foundation setup (monorepo + stack)| ✅ Completa  |
 | 2    | Parser XML CFDI                    | Pendiente   |
 | 3    | Endpoints REST                     | Pendiente   |
 | 4    | UI — dashboard de nóminas          | Pendiente   |

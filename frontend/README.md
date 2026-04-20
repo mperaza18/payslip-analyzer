@@ -1,6 +1,6 @@
 # Frontend — Payslip Analyzer
 
-React 18 · TypeScript · Vite · Tailwind CSS v4 · Recharts · Axios
+React 19 · TypeScript · Vite · Tailwind CSS v4 · Recharts
 
 ---
 
@@ -22,7 +22,7 @@ cd frontend
 npm install
 
 # Dependencias adicionales
-npm install recharts axios
+npm install recharts
 npm install tailwindcss @tailwindcss/vite
 ```
 
@@ -82,4 +82,4 @@ src/
 |------------|------------------------------------------|
 | Tailwind   | Utilidades CSS (v4, sin config extra)    |
 | Recharts   | Gráficas de percepciones/deducciones     |
-| Axios      | HTTP client hacia el backend FastAPI     |
+| fetch      | HTTP client nativo del browser           |
